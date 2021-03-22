@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <AssemblyVersion>0.9.0.4381</AssemblyVersion>
+    <InformationalVersion>0.9.0.20210322</InformationalVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\V2rayGeodataAutoupdater.Data\V2rayGeodataAutoupdater.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="updater.config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

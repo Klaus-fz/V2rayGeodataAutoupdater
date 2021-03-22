@@ -1,0 +1,14 @@
+{
+  "IsShowConsole": true,
+  "IsUpdateGeoIp": true,
+  "GeoIpSource": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat",
+  "GeoIpSourceReserve": "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geoip.dat",
+  "IsUpdateGeoSite": true,
+  "GeoSiteSource": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
+  "GeoSiteSourceReserve": "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat",
+  "IsLanchClient": true,
+  "ClientPath": "E:\\v2rayN-Core\\v2rayN.exe",
+  "ClientParameter": "",
+  "IsDataSaveElsewhere": false,
+  "DataSavePath": ""
+}
