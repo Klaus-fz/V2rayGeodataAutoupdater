@@ -16,18 +16,56 @@ namespace V2rayGeodataAutoupdater
 {
     class Program
     {
-        private static Config config = new();
-        private static HttpClient httpClient = new();
+        private static AppConfig config = new();
+        private static readonly HttpClient httpClient = new();
         private static readonly string defaultConfigFile = AppDomain.CurrentDomain.BaseDirectory + Constants.CONFIG_FILE;
 
         static void Main(string[] args)
         {
             Initialize();
-            ReadConfig(args.Length > 0 ? args[0] : defaultConfigFile);
+            bool bypassClient = false;
+            if (args.Length > 0)
+            {
+                // handle args
+                switch (args[0].ToUpper())
+                {
+                    case "-C":
+                        if (args.Length > 1)
+                        {
+                            ReadConfig(args[1]);
+                        }
+                        else
+                        {
+                            WriteLine("Bad command: Configuration File not given");
+                        }
+                        break;
+                    case "-U":
+                        bypassClient = true;
+                        ReadConfig(defaultConfigFile);
+                        break;
+                    case "-H":
+                        ShowHelp();
+                        return;
+                    default:
+                        WriteLine("Unknown Parameter, use -h for help");
+                        return;
+                }
+            }
+            else
+            {
+                ReadConfig(defaultConfigFile);
+            }
             UpdateData().Wait();
-            LanchClient();
+            LanchClient(bypassClient); 
 
             WriteLine("Application End");
+        }
+
+        private static void ShowHelp()
+        {
+            WriteLine("-C [Configuration File Path] : Run the application with the given config file");
+            WriteLine("-U : Update the Geodata without launch client");
+            WriteLine("-H : Help");
         }
 
         private static void Initialize()
@@ -39,7 +77,7 @@ namespace V2rayGeodataAutoupdater
         {
             if (File.Exists(configFile))
             {
-                config = JsonSerializer.Deserialize<Config>(File.ReadAllText(configFile));
+                config = JsonSerializer.Deserialize<AppConfig>(File.ReadAllText(configFile));
             }
             else
             {
@@ -160,7 +198,7 @@ namespace V2rayGeodataAutoupdater
                 }
             }
 
-            var savePath = (config.IsDataSaveElsewhere) ? config.DataSavePath : Path.GetDirectoryName(config.ClientPath);
+            var savePath = config.DataSavePath;
 
             if (GeoUpdateUrls.Count > 0)
             {
@@ -188,12 +226,13 @@ namespace V2rayGeodataAutoupdater
         /// <summary>
         /// Launch Client
         /// </summary>
-        private static void LanchClient()
+        private static void LanchClient(bool bypass = false)
         {
-            WriteLine("Launch Client...");
+            if (bypass) return;
 
-            if (config.IsLanchClient && File.Exists(config.ClientPath))
+            if (config.IsLaunchClient && File.Exists(config.ClientPath))
             {
+                WriteLine("Launch Client...");
                 var client = Process.Start(config.ClientPath, config.ClientParameter);
                 WriteLine("Client launched");
                 // If show console then show the result to user

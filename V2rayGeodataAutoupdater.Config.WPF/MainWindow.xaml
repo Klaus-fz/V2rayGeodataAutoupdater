@@ -1,0 +1,63 @@
+﻿<Window x:Class="V2rayGeodataAutoupdater.Config.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:V2rayGeodataAutoupdater.Config.WPF"
+        xmlns:data="clr-namespace:V2rayGeodataAutoupdater.Data;assembly=V2rayGeodataAutoupdater.Data"
+        mc:Ignorable="d"
+        Title="V2rayGeodataAutoupdater.Config" Height="540" Width="540">
+    <Window.Resources>
+        <Style x:Name="StyDefTbl" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Margin" Value="0,5,0,1"/>
+        </Style>
+        <Style x:Name="StyDefTbx" TargetType="TextBox">
+            <Setter Property="Width" Value="auto"/>
+            <Setter Property="Margin" Value="0,0,0,5"/>
+        </Style>
+        <Style x:Name="StyDefChk" TargetType="CheckBox">
+            <Setter Property="Margin" Value="0,5"/>
+        </Style>
+        <Style x:Name="StyDefBtn" TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="MinWidth" Value="70"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="GridBase" Background="LightGray">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="32"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="DataPanel" Margin="10" Grid.Row="0">
+            <StackPanel.DataContext>
+                <data:AppConfig x:Name="editorConfig"/>
+            </StackPanel.DataContext>
+            <CheckBox x:Name="ChkShowConsole" Content="Show Console" IsChecked="{Binding IsShowConsole}"/>
+            <CheckBox x:Name="ChkUpdateGeoIp" Content="Update GeoIP Data" IsChecked="{Binding IsUpdateGeoIp}"/>
+            <TextBlock Text="GeoIP Source :"/>
+            <TextBox x:Name="TbxGeoIpSource" IsEnabled="{Binding ElementName=ChkUpdateGeoIp, Path=IsChecked}" Text="{Binding GeoIpSource}"/>
+            <TextBlock Text="GeoIP Source Reserve :"/>
+            <TextBox x:Name="TbxGeoIpSourceReserve" IsEnabled="{Binding ElementName=ChkUpdateGeoIp, Path=IsChecked}" Text="{Binding GeoIpSourceReserve}"/>
+            <CheckBox x:Name="ChkUpdateGeoSite" Content="Update GeoSite Data" IsChecked="{Binding IsUpdateGeoSite}"/>
+            <TextBlock Text="GeoSite Source :"/>
+            <TextBox x:Name="TbxGeoSiteSource" IsEnabled="{Binding ElementName=ChkUpdateGeoSite, Path=IsChecked}" Text="{Binding GeoSiteSource}"/>
+            <TextBlock Text="GeoSite Source Reserve :"/>
+            <TextBox x:Name="TbxGeoSiteSourceReserve" IsEnabled="{Binding ElementName=ChkUpdateGeoSite, Path=IsChecked}" Text="{Binding GeoSiteSourceReserve}"/>
+            <CheckBox x:Name="ChkLaunchClient" Content="Launch Client" IsChecked="{Binding IsLaunchClient}"/>
+            <TextBlock Text="Client Path :"/>
+            <TextBox x:Name="TbxClientPath" IsEnabled="{Binding ElementName=ChkLaunchClient, Path=IsChecked}" Text="{Binding ClientPath}"/>
+            <TextBlock Text="Client Parameter :"/>
+            <TextBox x:Name="TbxClientParameter" IsEnabled="{Binding ElementName=ChkLaunchClient, Path=IsChecked}" Text="{Binding ClientParameter}"/>
+            <CheckBox x:Name="ChkSaveDataElsewhere" Content="Save Data Elsewhere" IsChecked="{Binding IsDataSaveElsewhere}"/>
+            <TextBlock Text="Data Save Path :"/>
+            <TextBox x:Name="TbxDataSavePath" IsEnabled="{Binding ElementName=ChkSaveDataElsewhere, Path=IsChecked}" Text="{Binding DataSavePath}"/>
+        </StackPanel>
+        <DockPanel Grid.Row="1">
+            <Button x:Name="BtnSave" DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Save" Click="BtnSave_Click"/>
+            <Button x:Name="BtnReset" DockPanel.Dock="Left" HorizontalAlignment="Left" Content="Reset" Click="BtnReset_Click"/>
+            <Button x:Name="BtnLaunch" DockPanel.Dock="Right" HorizontalAlignment="Right" Content="Launch" Click="BtnLaunch_Click"/>
+            <Button x:Name="BtnUpdate" DockPanel.Dock="Right" HorizontalAlignment="Right" Content="Update" Click="BtnUpdate_Click"/>
+        </DockPanel>
+    </Grid>
+</Window>
