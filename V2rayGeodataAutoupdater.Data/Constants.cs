@@ -9,5 +9,6 @@ namespace V2rayGeodataAutoupdater.Data
     public static class Constants
     {
         public const string CONFIG_FILE = "updater.config.json";
+        public const string UPDATER_EXE = "V2rayGeodataAutoupdater.exe";
     }
 }

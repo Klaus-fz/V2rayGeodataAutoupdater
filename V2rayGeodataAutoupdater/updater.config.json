@@ -6,7 +6,7 @@
   "IsUpdateGeoSite": true,
   "GeoSiteSource": "https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat",
   "GeoSiteSourceReserve": "https://cdn.jsdelivr.net/gh/Loyalsoldier/v2ray-rules-dat@release/geosite.dat",
-  "IsLanchClient": true,
+  "IsLaunchClient": true,
   "ClientPath": "E:\\v2rayN-Core\\v2rayN.exe",
   "ClientParameter": "",
   "IsDataSaveElsewhere": false,

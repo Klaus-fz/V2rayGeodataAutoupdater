@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <Title>V2rayGeodataAutoupdater.Config.WPF</Title>
+    <Description>An auto GeoData Updater for V2ray</Description>
+    <Copyright>Klaus-fz © 2021</Copyright>
+    <Version>1.0.0.4181</Version>
+    <InformationalVersion>1.0.0.20210401</InformationalVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>..\Release\</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\V2rayGeodataAutoupdater.Data\V2rayGeodataAutoupdater.Data.csproj" />
+  </ItemGroup>
+
+</Project>
