@@ -50,7 +50,7 @@ namespace V2rayGeodataAutoupdater.Data
         {
             IsShowConsole = source.IsShowConsole;
             IsUpdateGeoIp = source.IsUpdateGeoIp;
-            GeoIpSource = source.GeoSiteSource;
+            GeoIpSource = source.GeoIpSource;
             GeoIpSourceReserve = source.GeoIpSourceReserve;
             IsUpdateGeoSite = source.IsUpdateGeoSite;
             GeoSiteSource = source.GeoSiteSource;

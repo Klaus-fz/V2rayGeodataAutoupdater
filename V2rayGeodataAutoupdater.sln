@@ -7,7 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V2rayGeodataAutoupdater", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V2rayGeodataAutoupdater.Data", "V2rayGeodataAutoupdater.Data\V2rayGeodataAutoupdater.Data.csproj", "{582A6364-BF56-416F-AD66-D3C41C698417}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "V2rayGeodataAutoupdater.Config.WPF", "V2rayGeodataAutoupdater.Config.WPF\V2rayGeodataAutoupdater.Config.WPF.csproj", "{54424817-D546-40B3-9377-0BB2E88DC428}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "V2rayGeodataAutoupdater.Config.WPF", "V2rayGeodataAutoupdater.Config.WPF\V2rayGeodataAutoupdater.Config.WPF.csproj", "{54424817-D546-40B3-9377-0BB2E88DC428}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6F7ED4E3-06B2-4B01-A65A-AC54D080555E}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
